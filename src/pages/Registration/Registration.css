@@ -1,0 +1,53 @@
+.register{
+    position: relative;
+    height: 835px;
+  
+    background-image: linear-gradient(180deg, rgb(94, 154, 232), rgb(144, 47, 200));
+}
+.register-in{
+    position: absolute;
+    left: 50%; 
+    top: 50%; 
+    transform: translate(-50%, -50%); 
+     width: 700px;
+     height: 600px;
+     border: 1px solid gray;
+     padding: 50px 20px;
+
+     background-color: white;
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+.info label{
+    font-size: 17px;
+    font-weight: 600;
+    font-family: sans-serif;
+}
+.info input{
+    padding: 12px 8px;
+}
+.gender{
+    display: flex;
+    justify-content: space-between;
+}
+.regbtn{
+    background-image: linear-gradient(180deg, rgb(94, 154, 232), rgb(144, 47, 200));
+    width: 96%;
+    text-align: center;
+    color: white;
+    padding: 12px 0px;
+    margin: 20px 11px;
+}
+h3{
+    margin-left:10px
+}
+hr{
+    width: 10%;
+    height: 4px;
+    color: blueviolet;
+    background-color: blueviolet;
+    margin-left: 10px;
+}

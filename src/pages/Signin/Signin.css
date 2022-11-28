@@ -1,0 +1,57 @@
+.login{
+   position: absolute;
+   left: 50%; 
+   top: 50%; 
+   transform: translate(-50%, -50%); 
+    width: 500px;
+    height: 500px;
+    border: 1px solid gray;
+    border-radius: 50px;
+    background-color: white;
+ 
+
+}
+.login-in{
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+    position: absolute;
+    left: 50%; 
+    top: 50%; 
+    transform: translate(-50%, -50%); 
+   
+}
+.login-in input{
+    padding: 12px 8px;
+    border-radius: 30px;
+    margin-bottom: 30px;
+    width: 350px;
+}
+.log{
+   position: relative;
+    height: 835px;
+    background-color: rgb(18, 137, 227);
+}
+
+.user svg{
+    color: grey;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    left: 40%;
+    top: -40px;
+    
+}
+.user{
+    position: relative;
+   
+}
+.btnblue{
+    padding: 12px 8px;
+    border-radius: 30px;
+    margin-bottom: 30px;
+    width: 350px;
+    background-color: rgb(18, 137, 227);
+    color: white;
+    font-weight: 600;
+}

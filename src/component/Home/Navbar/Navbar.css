@@ -1,0 +1,36 @@
+*{
+    text-decoration: none;
+    list-style: none;
+}
+.header{
+    padding: 10px 20px;
+    background-color: rgb(94, 154, 232);
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+nav ul{
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+
+}
+nav ul li{
+    margin-right: 10px;
+    font-size: 18px;
+   
+
+}
+nav ul li a{
+    color: white;
+    text-decoration: none;
+}
+.logo a{
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+}
