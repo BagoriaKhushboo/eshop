@@ -5,7 +5,7 @@ import {useEffect, useState} from 'react';
 function Home(){
     const [productData, setProductData] = useState([]);
   useEffect(() => {
-    fetch("Product.json")
+    fetch("https://fakestoreapi.com/products")
       .then((res) => {
         console.log("Raw Data");
         console.log(res);

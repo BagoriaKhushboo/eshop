@@ -61,7 +61,7 @@ function Registration() {
                       checked
                     />
                     <label className="form-check-label" for="flexRadioDefault2">
-                      female
+                      Female
                     </label>
                   </div>
                   <div className="form-check">

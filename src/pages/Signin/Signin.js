@@ -27,7 +27,7 @@ function SignIn() {
         <input type="text" placeholder="Username" />
         <input type="text" placeholder="Password" />
         </form>
-        <button className="btn btnblue">Sign In</button>
+        <button className="btn btblue">Sign In</button>
       </div>
     </div>
     </div>
