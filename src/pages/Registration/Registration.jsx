@@ -3,7 +3,7 @@ function Registration() {
   return (
     <div className="register">
       <div className="register-in">
-        <h3>Registration</h3>
+        <h3 className="">Registration</h3>
         <hr />
         <form action="">
           <div className="container">

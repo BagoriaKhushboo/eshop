@@ -3,8 +3,9 @@
     /* display: flex; */
 }
 .card-title{
-    border-bottom: 1px solid #a0989829;
-    padding: 10px 0;
+ margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 600;
 }
 .photo{
     border-bottom: 1px solid #a0989829;
@@ -30,19 +31,19 @@
     margin-top: 10px;
 }
 .btnset{
-    width: 30%;
+    width: 50%;
 }
 .card-body a svg{
     color: white;
     margin-right: 5px;
+   
 }
 .card-body a{
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.card h5{
-    margin-bottom: 0;
-    margin-left: 10px;
-    font-size: 13px;
+.card-body .stars {
+    margin-bottom: 10px;
 }
+
