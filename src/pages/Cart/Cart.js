@@ -1,20 +1,18 @@
 import { useEffect, useState } from "react";
 import CartItem from "../../component/Home/CartItem/CartItem";
 
-
-
 import "./Cart.css";
 
 function Cart() {
   const [cartItems, setCartItem] = useState([]);
-  
+
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
     let items = localStorage.getItem("cartItems");
-    
-    if(items){
-      let parsedItems= JSON.parse(items);
+
+    if (items) {
+      let parsedItems = JSON.parse(items);
       updateTotalPrice(parsedItems);
       setCartItem(parsedItems);
     }
@@ -49,13 +47,11 @@ function Cart() {
     items.splice(index, 1);
     setCartItem(items);
     updateTotalPrice(items);
-   localStorage.setItem("cartItems",(JSON.stringify(items)))
-   
+    localStorage.setItem("cartItems", JSON.stringify(items));
   }
 
   return (
     <div className="cart-container">
- 
       {/* 2. Print updated total price */}
       <h4 className="totalPrice">Total Price:${totalPrice}</h4>
       <div>
