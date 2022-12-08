@@ -1,39 +1,87 @@
 import "./Registration.css";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 function Registration() {
+  const [user, setUser] = useState({});
+  const navigate = useNavigate();
+  function handleFormSubmit(event) {
+
+    // console.log(JSON.stringify(user));
+    // redirect to login . 
+   fetch(
+        "http://localhost:4400/api/auth/register",
+        {
+          method:"POST",
+          body:JSON.stringify(user),
+          headers:{
+            "Accept":"application/json",
+            "Content-Type":"application/json"
+          }
+        }
+      ).then(
+        res=>{
+          console.log(res);
+          navigate("/signin", {replace: true});
+        }).catch(err=>{
+          console.log(err);
+        });
+  
+  }
   return (
     <div className="register">
       <div className="register-in">
         <h3 className="">Registration</h3>
         <hr />
-        <form action="">
+        <div>
           <div className="container">
             <div className="row">
               <div className="col-md-6">
                 <div className="info">
                   <label htmlFor="">Full Name</label>
-                  <input type="text" placeholder="Enter your name" />
+                  <input type="text" placeholder="Enter your name"    onInput={(e) => {
+                if (!user.name) user.name = {};
+                user.name.firstname = e.target.value;
+                setUser(user);
+              }}
+            />
                 </div>
                 <div className="info">
                   <label htmlFor="">Email</label>
-                  <input type="text" placeholder="Enter your email" />
+                  <input type="email" placeholder="Enter your email"   onInput={(e) => {
+              user.email = e.target.value;
+              setUser(user);
+            }}
+              />
                 </div>
                 <div className="info">
                   <label htmlFor="">Password</label>
-                  <input type="text" placeholder="Enter your password" />
+                  <input type="password" placeholder="Enter your password"  onInput={(e) => {
+              user.password = e.target.value;
+              setUser(user);
+            }}/>
                 </div>
               </div>
               <div className="col-md-6">
                 <div className="info">
                   <label htmlFor="">UserName</label>
-                  <input type="text" placeholder="Enter your username" />
+                  <input type="text" placeholder="Enter your username"  onInput={(e) => {
+              user.username = e.target.value;
+              setUser(user);
+            }}/>
                 </div>
                 <div className="info">
                   <label htmlFor="">Phone Number</label>
-                  <input type="text" placeholder="Enter your phone number" />
+                  <input type="text" placeholder="Enter your phone number"  onInput={(e) => {
+              user.phonenumber = e.target.value;
+              setUser(user);
+            }}/>
                 </div>
                 <div className="info">
                   <label htmlFor="">Confirm Password</label>
-                  <input type="text" placeholder="Confirm your password" />
+                  <input type="password" placeholder="Confirm your password"  onInput={(e) => {
+              user.cpassword = e.target.value;
+              setUser(user);
+            }}/>
                 </div>
               </div>
               <div className="col-md-12">
@@ -80,8 +128,8 @@ function Registration() {
               </div>
             </div>
           </div>
-        </form>
-        <button className="btn regbtn">Register</button>
+        </div>
+        <button className="btn regbtn" onClick={handleFormSubmit}>Register</button>
       </div>
     </div>
   );

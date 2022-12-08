@@ -1,5 +1,28 @@
 import "./Signin.css";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 function SignIn() {
+  const [loginuser, setLoginUser] = useState({});
+  const navigate = useNavigate();
+  const handleSignIn=()=>{
+    fetch(
+      "http://localhost:4400/api/logg/login",
+      {
+        method:"POST",
+        body:JSON.stringify(loginuser),
+        headers:{
+          "Accept":"application/json",
+          "Content-Type":"application/json"
+        }
+      }
+    ).then(
+      res=>{
+        console.log(res);
+        navigate("/", {replace: true});
+      }).catch(err=>{
+        console.log(err);
+      });
+  }
   return (
    
 
@@ -23,11 +46,17 @@ function SignIn() {
         </svg>
       </div>
       <div className="login-in">
-        <form action="">
-        <input type="text" placeholder="Username" />
-        <input type="text" placeholder="Password" />
-        </form>
-        <button className="btn btblue">Sign In</button>
+        <div>
+        <input type="text" placeholder="Username" onInput={(e) => {
+              loginuser.username = e.target.value;
+              setLoginUser(loginuser);
+            }} />
+        <input type="password" placeholder="Password" onInput={(e) => {
+             loginuser.password = e.target.value;
+             setLoginUser(loginuser);
+            }}/>
+        </div>
+        <button className="btn btblue" onClick={handleSignIn} >Sign In</button>
       </div>
     </div>
     </div>
