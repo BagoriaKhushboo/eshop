@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 function Registration() {
   const [user, setUser] = useState({});
+
   const navigate = useNavigate();
   function handleFormSubmit(event) {
 
@@ -25,8 +26,9 @@ function Registration() {
         }).catch(err=>{
           console.log(err);
         });
-  
+ 
   }
+ 
   return (
     <div className="register">
       <div className="register-in">
@@ -79,9 +81,8 @@ function Registration() {
                 <div className="info">
                   <label htmlFor="">Confirm Password</label>
                   <input type="password" placeholder="Confirm your password"  onInput={(e) => {
-              user.cpassword = e.target.value;
-              setUser(user);
-            }}/>
+              user.password = e.target.value;
+              setUser(user);}}/>
                 </div>
               </div>
               <div className="col-md-12">

@@ -8,7 +8,7 @@ function Product(props) {
   }
 
   function AddtoCart() {
-    // cartItems is the key.
+    // cartItems is the key..
     const products = localStorage.getItem("cartItems");
 
     // if there are no cartitems
@@ -22,6 +22,29 @@ function Product(props) {
       cartItems.push(tdata);
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
     }
+    let user = localStorage.getItem("loggedInUser");
+    user = JSON.parse(user);
+    // call api.
+    fetch(
+      "http://localhost:4400/api/cart",
+      {
+        method:"POST",
+        body:JSON.stringify({"email":user.email, "product":tdata}),
+        headers:{
+          "Accept":"application/json",
+          "Content-Type":"application/json"
+        }
+      }
+    ).then(
+      res=>{
+        if(res.status===200){
+          console.log("Cart is updated"); 
+        }else if(res.status===400){
+          console.log("Invalid cart item");
+        }
+      }).catch(err=>{
+        console.log(err);
+      });
   }
 
   return (
@@ -56,7 +79,7 @@ function Product(props) {
               {/* <p className="card-text">
                 { tdata.description}
                 </p> */}
-              <a href="" className="btn btn-success btnset" onClick={AddtoCart}>
+              <a href="#" className="btn btn-success btnset" onClick={AddtoCart}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"

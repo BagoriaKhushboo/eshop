@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 function SignIn() {
   const [loginuser, setLoginUser] = useState({});
+  const [isError, setError]=useState();
   const navigate = useNavigate();
   const handleSignIn=()=>{
     fetch(
@@ -17,12 +18,23 @@ function SignIn() {
       }
     ).then(
       res=>{
-        console.log(res);
-        navigate("/", {replace: true});
+        if(res.status===200){
+          res.text().then(parsedResponse=>{
+            console.log(parsedResponse);
+            localStorage.setItem("loggedInUser", JSON.stringify(parsedResponse));
+            setError();
+            navigate("/", {replace: true});
+          })
+
+          
+        }else if(res.status===400){
+          setError(1);
+        }
       }).catch(err=>{
         console.log(err);
       });
   }
+
   return (
    
 
@@ -56,6 +68,12 @@ function SignIn() {
              setLoginUser(loginuser);
             }}/>
         </div>
+        {
+        isError &&
+        <div class="alert alert-danger" role="alert">
+          Invalid Credentials
+        </div>
+       } 
         <button className="btn btblue" onClick={handleSignIn} >Sign In</button>
       </div>
     </div>
